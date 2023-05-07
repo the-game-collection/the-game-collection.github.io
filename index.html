@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Rom download manager</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="Download roms for retro consoles: Nintendo Entertainment System (NES), Super Nintendo Entertainment System (SNES), Nintendo 64, Game Boy Advance, Sega Master System, Sega Megadrive (Genesis), Sega Saturn, PC Engine - TurboGrafx-16, ZX Spectrum, Sony Playstation, Sony Playstation 2, Xbox original" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/server.min.js"></script>
+</head>
+<body style="opacity: 0">
+  <div id="navbar" class="navbar-fixed scrollspy">
+    <nav class="white">
+      <div class="nav-wrapper container">
+        <a class="head-link brand-logo" href="#navbar"><img src="img/thegamecollection.png"/></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="head-link" href="#navbar">Download</a></li>
+          <li><a class="head-link" href="#program">Program</a></li>
+          <li><a class="head-link" href="#collection">Collection</a></li>
+          <li><a class="head-link" href="#supportus">Support us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="parallax-container">
+    <div class="container center">
+      <h1>Rom download manager</h1>
+      <h5>Please look at our portable (open source) program for Windows<br><br></h5>
+      <a id="download" class="btn-large purple lighten-1" href="https://drive.google.com/uc?export=download&id=1zwpB9_ZiwldoTIE3dxv3Jm0CLyI19ojw" target="_blank">
+        <i class="material-icons left">file_download</i>Download
+	    </a>
+	  </div>
+    <div class="parallax"><img src="img/dream.jpg"></div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons medium">info</i><br>Our goal</h5>
+        <p class="light">We want to create the easiest way to download and run retro games for various consoles</p>
+      </div>
+
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons medium">collections</i><br>Game collection</h5>
+        <p class="light">We created a <a class="head-link" href="#collection">database of retro games</a> that contains: titels, genres, descriptions, cover pictures & download links</p>
+      </div>
+
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons medium">airport_shuttle</i><br>Portable software</h5>
+        <p class="light">We have also developed a <a class="head-link" href="#program">portable program</a> to conveniently use our collection of retro games</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="parallax-container" id="program">
+    <div class="container center">
+      <h1><br><br>About our program</h1>
+	  </div>
+    <div class="parallax"><img src="img/dream.jpg"></div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col s3">
+        <h5 class="center"><i class="material-icons medium">storage</i><br>Game database</h5>
+        <p class="light">Our database is stored on Github (not on your PC). So, you always see all latest game collection updates</p>
+      </div>
+
+      <div class="col s3">
+        <h5 class="center"><i class="material-icons medium center">code</i><br>JavaScript</h5>
+        <p class="light">The program is written in JavaScript and stored on Github, too. It means you will never need to upgrade it.</p>
+      </div>
+
+      <div class="col s3">
+        <h5 class="center"><i class="material-icons medium center">cloud_download</i><br>Download folder</h5>
+        <p class="light">The program saves your games (roms) into the "./resources/app/downloads/[nes, snes, ...]" folder.</p>
+      </div>
+
+      <div class="col s3">
+        <h5 class="center"><i class="material-icons medium center">star</i><br>Important</h5>
+        <p class="light">The program allows you to resume broken downloads to keep you from losing the progress.</p>
+      </div>
+    </div>
+    
+    <div class="row col s12 center">
+      <h3>Supported retro consoles</h3>
+    </div>
+    
+    <div class="row">
+      <div id="nes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="snes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="n64"class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="gba" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    
+    <div class="row">
+      <div id="sms" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="smd" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="saturn" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="pce" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    
+    <div class="row">
+      <div id="zx" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps1" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps2" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="xbox" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    
+    <div class="row col s12 center">
+      <p>Click on the console's picture to browse game collection</p>
+    </div>
+  </div> 
+  
+  <div class="parallax-container" id="collection">
+    <div class="container center">
+      <h1><br><br><span id="plat">Nintendo Entertainment System</span></h1>
+	  </div>
+    <div class="parallax"><img src="img/dream.jpg"></div>
+  </div>
+  
+  <div class="container">
+    <div class="row col s12">
+      <table class="highlight">
+        <tr><td style="font-weight: bold;">Emulator</td><td id="emu"></td></tr>
+        <tr><td style="font-weight: bold;">Executable file [1]</td><td id="exe"></td></tr>
+      </table>
+      <p>[1] The program checks for this file. If this executable file exists, then you can run your games directly from the GUI.</p>
+      
+      <h3 class="center">Game collection</h3>
+      
+      <ul class="pagination center">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect"><a href="#!">#</a></li>
+        <li class="active"><a href="#!">A</a></li>
+        <li class="waves-effect"><a href="#!">B</a></li>
+        <li class="waves-effect"><a href="#!">C</a></li>
+        <li class="waves-effect"><a href="#!">D</a></li>
+        <li class="waves-effect"><a href="#!">E</a></li>
+        <li class="waves-effect"><a href="#!">F</a></li>
+        <li class="waves-effect"><a href="#!">G</a></li>
+        <li class="waves-effect"><a href="#!">H</a></li>
+        <li class="waves-effect"><a href="#!">I</a></li>
+        <li class="waves-effect"><a href="#!">J</a></li>
+        <li class="waves-effect"><a href="#!">K</a></li>
+        <li class="waves-effect"><a href="#!">L</a></li>
+        <li class="waves-effect"><a href="#!">M</a></li>
+        <li class="waves-effect"><a href="#!">N</a></li>
+        <li class="waves-effect"><a href="#!">O</a></li>
+        <li class="waves-effect"><a href="#!">P</a></li>
+        <li class="waves-effect"><a href="#!">Q</a></li>
+        <li class="waves-effect"><a href="#!">R</a></li>
+        <li class="waves-effect"><a href="#!">S</a></li>
+        <li class="waves-effect"><a href="#!">T</a></li>
+        <li class="waves-effect"><a href="#!">U</a></li>
+        <li class="waves-effect"><a href="#!">V</a></li>
+        <li class="waves-effect"><a href="#!">W</a></li>
+        <li class="waves-effect"><a href="#!">X</a></li>
+        <li class="waves-effect"><a href="#!">Y</a></li>
+        <li class="waves-effect"><a href="#!">Z</a></li>
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+      </ul>
+      
+      <table class="highlight">
+        <thead>
+          <tr><th>Title</th><th>Year</th><th>Developer</th><th width="170">Download</th></tr>
+        </thead>
+        <tbody id="list"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="parallax-container" id="supportus">
+    <div class="container center">
+      <h1><br><br>Please support us</h1>
+	  </div>
+    <div class="parallax"><img src="img/dream.jpg"></div>
+  </div>
+  
+  <div class="container">
+    <div class="row col s12">
+      <h5 class="center">Why donate?</h5>
+      <p class="center">If you are satisfied with our service, or just enjoy visiting our pages, you can help us in the website growth. By making a donation, you allow us to:</p>
+    </div>
+
+    <div class="row">
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons small" style="vertical-align: -6px;">looks_one</i>Free service</h5>
+        <p class="light center">Maintain a free service for all gamers</p>
+      </div>
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons small" style="vertical-align: -6px;">looks_two</i>Up-to-date database</h5>
+        <p class="light center">Keep the listings of our collections up-to-date</p>
+      </div>
+      <div class="col s4">
+        <h5 class="center"><i class="material-icons small" style="vertical-align: -6px;">looks_3</i>New features</h5>
+        <p class="light center">Fix buges & creating new features</p>
+      </div>
+    </div>
+
+    <div class="row col s12">  
+      <table class="highlight">
+        <tbody>
+          <tr>
+            <td><img src="img/btc.png" width="32" height="32"></td>
+            <td>Bitcoin (BTC)</td>
+            <td><input id="btc_i" type="text" value="bc1qfyf8uz2jamw654mh5qay2z5g7uvsphrqgfnu8h" onclick="this.select()"/></td>
+            <td width="120"><a id="btc" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+          </tr>
+          <tr>
+            <td><img src="img/eth.png" width="32" height="32"></td>
+            <td>Ethereum (ETH)</td>
+            <td><input id="eth_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
+            <td><a id="eth" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+          </tr>
+          <tr>
+            <td><img src="img/usdt.png" width="32" height="32"></td>
+            <td>Tether (USDT) [ERC-20]</td>
+            <td><input id="usdt_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
+            <td><a id="usdt" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+          </tr>
+          <tr>
+            <td><img src="img/ltc.png" width="32" height="32"></td>
+            <td>Litecoin (LTC)</td>
+            <td><input id="ltc_i" type="text" value="LX8Pc8Dye89Ay2jtRew6h5uF5gWunPrbAN" onclick="this.select()"/></td>
+            <td><a id="ltc" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+          </tr>
+          <tr>
+            <td><img src="img/doge.png" width="32" height="32"></td>
+            <td>Dogecoin (DOGE)</td>
+            <td><input id="doge_i" type="text" value="DNjeZi7DwSHeLoxNxvG5v91CGVYV84pZCn" onclick="this.select()"/></td>
+            <td><a id="doge" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="center"><br>Our program & game collection are completely free, therefore our project continues to live only thanks to your donations.<br></p>
+    </div>
+  </div>
+</body>
