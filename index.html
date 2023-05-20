@@ -14,6 +14,7 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/materialize.min.js"></script>
   <script src="js/server.min.js"></script>
+  <script src="js/worker.min.js"></script>
 </head>
 <body style="opacity: 0">
   <div id="navbar" class="navbar-fixed scrollspy">
@@ -25,11 +26,105 @@
           <li><a class="head-link" href="#program">Program</a></li>
           <li><a class="head-link" href="#collection">Collection</a></li>
           <li><a class="head-link" href="#supportus">Support us</a></li>
+          <li><a href="#"><i class="material-icons left">person</i></a></li>
         </ul>
       </div>
     </nav>
   </div>
   
+  <div id="person" class="container" style="display: none;">
+    <div class="row col s12 center login"><h5>Sign up / Login</h5></div>
+    <div class="row login">
+      <div class="input-field col s6">
+        <input id="username" type="text" class="validate">
+        <label class="active" for="username">Username</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="password" type="password" class="validate">
+        <label class="active" for="password">Password</label>
+      </div>
+    </div>
+    <div class="row login">
+      <div class="col s6">
+        <p>What is?</p>
+        <p id="_captcha"></p>
+      </div>
+      <div class="input-field col s6">
+        <input id="captcha" type="text" class="validate">
+        <label class="active" for="captcha">Captcha</label>
+      </div>
+    </div>
+    <div class="row col s12 center login">
+      <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">person_add</i>Login</a>&nbsp;&nbsp;User will be created if not exists!
+    </div>
+    <div id="login_error" class="row col s12 login" style="display: none;">
+      <div class="alert card red lighten-4 red-text text-darken-4">
+        <div class="card-content">
+          <i class="material-icons" style="vertical-align: -6px;">report</i><span id="login_error"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="card" class="row col s12" style="display: none;">
+      <h5 class="center">Welcome user <span id="c_user"></span></h5>
+      <table class="highlight">
+        <tbody>
+          <tr>
+            <td><img src="img/usdt.png" width="32" height="32"></td>
+            <td>Tether (USDT) [ERC-20]</td><td id="c_usdt"></td>
+            <td width="160"><a id="usdt" class="waves-effect waves-light btn deposit"><i class="material-icons left">file_download</i>Deposit</a></td>
+            <td><a id="usdt" class="waves-effect waves-light btn withdraw"><i class="material-icons left">file_upload</i>Withdraw</a></td>
+          </th>
+          <tr>
+            <td><img src="img/eth.png" width="32" height="32"></td>
+            <td>Ethereum (ETH)</td><td id="c_usdt"></td>
+            <td width="160"><a id="eth" class="waves-effect waves-light btn deposit"><i class="material-icons left">file_download</i>Deposit</a></td>
+            <td><a id="eth" class="waves-effect waves-light btn withdraw"><i class="material-icons left">file_upload</i>Withdraw</a></td>
+          </th>
+        </tbody>
+      </table>
+      <h5 class="center">Invite your friends using the following link and get 1% of all their deposits:</h5>
+      <h5 id="c_user" class="center blue-text"></h5>
+    </div>
+    <div id="deposit" class="row col s12" style="display: none;">
+      <br>
+      <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
+      <table class="highlight">
+        <tbody>
+          <tr>
+            <td>Step1: Connect your web-wallet</td>
+            <td><a class="waves-effect waves-light btn m_connect"><img src="img/metamask.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Connect</a></td>
+          </tr>
+          <tr>
+            <td>Step 2: How much do you want to deposit?</td>
+            <td>
+              <input id="deposit_v" class="c_value" type="text" class="validate" value="0">
+            </td>
+          </tr>
+          <tr>
+            <td>Step 3: Press "DONE" button & confirm deposit from you wallet side</td>
+            <td><a id="deposit_done" class="disabled btn"><i class="material-icons left">check</i>Done</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Your deposit summary report:</h5>
+
+      <table class="highlight">
+        <tbody>
+          <tr><td>Your wallet address:</td><td class="wallet_a"></td></tr>
+          <tr><td>Currency:</td><td id="deposit_c"></td></tr>
+          <tr><td>Amount:</td><td id="deposit_a"></td></tr>
+          <tr><td>Invitation fee:</td><td id="deposit_f"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="withdraw" class="row col s12" style="display: none;">
+      <h5>Withdraw</h5>
+      <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
+    </div>
+  </div>
+
   <div class="parallax-container">
     <div class="container center">
       <h1>Rom download manager</h1>
@@ -37,6 +132,7 @@
       <a class="btn-large purple lighten-1" href="rom_download_manager-win32-x64.zip" target="_blank">
         <i class="material-icons left">file_download</i>Download
 	    </a>
+      <p id="demo"></p>
 	  </div>
     <div class="parallax"><img src="img/dream.jpg"></div>
   </div>

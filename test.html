@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <script src="worker.js"></script>
+</head>
+<body>
+  <p id = "demo"></p>
+  <script>
+    worker.connect('ws://192.168.0.24:8080',(msg) => {
+      console.log(msg)
+    });
+  </script>
+   
+</body>
+</html>
