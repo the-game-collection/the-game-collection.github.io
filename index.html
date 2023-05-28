@@ -26,7 +26,7 @@
           <li><a class="head-link" href="#program">Program</a></li>
           <li><a class="head-link" href="#collection">Collection</a></li>
           <li><a class="head-link" href="#supportus">Support us</a></li>
-          <li><a href="#"><i id="person" class="material-icons left">person</i></a></li>
+          <li><a href="#"><i id="person" class="material-icons left">person</i><span class="c_user"></span></a></li>
         </ul>
       </div>
     </nav>
@@ -55,7 +55,7 @@
       </div>
     </div>
     <div class="row col s12 center login">
-      <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">person_add</i>Login</a>&nbsp;&nbsp;User will be created if not exists!
+      <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">person_add</i>Login</a>&nbsp;&nbsp;Demo account will be created for your session if user not exists!
     </div>
     <div id="login_error" class="row col s12 login" style="display: none;">
       <div class="alert card red lighten-4 red-text text-darken-4">
@@ -66,62 +66,67 @@
     </div>
 
     <div id="card" class="row col s12" style="display: none;">
-      <h5 class="center">Welcome user <span id="c_user"></span></h5>
+      <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> Metamask browser extension <a href="https://metamask.io" target="_blank">(https://metamask.io)</a></h5>
       <table class="highlight">
-        <tbody>
+        <th></th><th>Name</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
+        <tbody id="metamask">
           <tr>
             <td><img src="img/usdt.png" width="32" height="32"></td>
-            <td>Tether (USDT) [ERC-20]</td><td id="c_usdt"></td>
-            <td width="160"><a id="usdt" class="waves-effect waves-light btn deposit"><i class="material-icons left">file_download</i>Deposit</a></td>
-            <td><a id="usdt" class="waves-effect waves-light btn withdraw"><i class="material-icons left">file_upload</i>Withdraw</a></td>
-          </th>
-          <tr>
-            <td><img src="img/eth.png" width="32" height="32"></td>
-            <td>Ethereum (ETH)</td><td id="c_usdt"></td>
-            <td width="160"><a id="eth" class="waves-effect waves-light btn deposit"><i class="material-icons left">file_download</i>Deposit</a></td>
-            <td><a id="eth" class="waves-effect waves-light btn withdraw"><i class="material-icons left">file_upload</i>Withdraw</a></td>
-          </th>
+            <td>Tether (USDT)</td><td id="o_usdt">0</td><td id="f_usdt">0</td>
+            <td colspan="2"></td>
+          </tr>
         </tbody>
       </table>
-      <h5 class="center">Invite your friends using the following link and get 1% of all their deposits:</h5>
-      <h5 id="c_user" class="center blue-text"></h5>
+      <p>1. Free ETH for Ethereum Goerli Testnet: <a href="https://goerlifaucet.com" target="_blank">https://goerlifaucet.com</a></p>
+      <p>2. Free BNB for Binance Smart Chain Testnet: <a href="https://testnet.bnbchain.org/faucet-smart" target="_blank">https://testnet.bnbchain.org/faucet-smart</a></p>
     </div>
     <div id="deposit" class="row col s12" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
+      <h5 id="deposit_h" class="center"></h5>
       <table class="highlight">
         <tbody>
           <tr>
-            <td>Step1: Connect your web-wallet</td>
-            <td><a class="waves-effect waves-light btn m_connect"><img src="img/metamask.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Connect</a></td>
-          </tr>
-          <tr>
-            <td>Step 2: How much do you want to deposit?</td>
+            <td>How much <span id="deposit_c"></span> do you want to deposit?</td>
             <td>
-              <input id="deposit_v" class="c_value" type="text" class="validate" value="0">
+              <input id="deposit_v" type="text" class="validate" value="0">
             </td>
           </tr>
           <tr>
-            <td>Step 3: Press "DONE" button & confirm deposit from you wallet side</td>
-            <td><a id="deposit_done" class="disabled btn"><i class="material-icons left">check</i>Done</a></td>
+            <td>Invitation fee (1%) *</td>
+            <td id="deposit_f">0.0001</td>
+          </tr>
+          <tr>
+            <td>Press "SUBMIT" button & confirm your deposit from the Metamask side</td>
+            <td><a id="deposit_s" class="disabled btn"><i class="material-icons left">check</i>Submit</a></td>
           </tr>
         </tbody>
       </table>
-
-      <h5>Your deposit summary report:</h5>
-
-      <table class="highlight">
-        <tbody>
-          <tr><td>Your wallet address:</td><td class="wallet_a"></td></tr>
-          <tr><td>Currency:</td><td id="deposit_c"></td></tr>
-          <tr><td>Amount:</td><td id="deposit_a"></td></tr>
-          <tr><td>Invitation fee:</td><td id="deposit_f"></td></tr>
-        </tbody>
-      </table>
+      <p class="center">* Help us to distribute our program using the following link and earn on invitation fees:</p> <h5 class="center blue-text">https://the-game.collection.github.io?id=<span class="c_user"></span></h5>
     </div>
     <div id="withdraw" class="row col s12" style="display: none;">
-      <h5>Withdraw</h5>
+      <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
+      <h5 id="withdraw_h" class="center"></h5>
+      <table class="highlight">
+        <tbody>
+          <tr><td>Available balance</td><td id="withdraw_a"></td></tr>
+          <tr>
+            <td>How much <span id="withdraw_c"></span> do you want to withdraw?</td>
+            <td>
+              <input id="withdraw_v" type="text" class="validate" value="0">
+            </td>
+          </tr>
+          <tr>
+            <td>Withdrawal fee</td>
+            <td id="withdraw_f">0.0001</td>
+          </tr>
+          <tr>
+            <td>Press "SUBMIT" button and wait a minute until the balance on your Metamask is updated</td>
+            <td><a id="withdraw_s" class="disabled btn"><i class="material-icons left">check</i>Submit</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -135,83 +140,85 @@
 	  </div>
     <div class="parallax"><img src="img/dream.jpg"></div>
   </div>
-  
+    
   <div class="container">
     <div class="row">
-      <div class="col s4">
+      <div class="col s3">
         <h5 class="center"><i class="material-icons medium">info</i><br>Our goal</h5>
         <p class="light">We want to create the easiest way to download and run retro games for various consoles</p>
       </div>
 
-      <div class="col s4">
+      <div class="col s3">
         <h5 class="center"><i class="material-icons medium">collections</i><br>Game collection</h5>
-        <p class="light">We created a <a class="head-link" href="#collection">database of retro games</a> that contains: titels, genres, descriptions, cover pictures & download links</p>
+        <p class="light">We created a database of retro games that contains: titels, genres, descriptions, cover pictures & download links</p>
       </div>
 
-      <div class="col s4">
+      <div class="col s3">
         <h5 class="center"><i class="material-icons medium">airport_shuttle</i><br>Portable software</h5>
-        <p class="light">We have also developed a <a class="head-link" href="#program">portable program</a> to conveniently use our collection of retro games</p>
+        <p class="light">We have also developed a portable program to conveniently use our collection of retro games and earn crypto</p>
       </div>
-    </div>
-  </div>
-  
-  <div class="parallax-container" id="program">
-    <div class="container center">
-      <h1><br><br>About our program</h1>
-	  </div>
-    <div class="parallax"><img src="img/dream.jpg"></div>
-  </div>
-  
-  <div class="container">
-    <div class="row">
+
       <div class="col s3">
         <h5 class="center"><i class="material-icons medium">storage</i><br>Game database</h5>
         <p class="light">Our database is stored on Github (not on your PC). So, you always see all latest game collection updates</p>
       </div>
+    </div>
 
+    <div class="row">
       <div class="col s3">
-        <h5 class="center"><i class="material-icons medium center">code</i><br>JavaScript</h5>
-        <p class="light">The program is written in JavaScript and stored on Github, too. It means you will never need to upgrade it.</p>
+        <h5 class="center"><i class="material-icons medium center">insert_emoticon</i><br>Affiliate program</h5>
+        <p class="light">Invite your friends to play using our program and earn on invitation fees from each deposit of your friends.</p>
       </div>
 
       <div class="col s3">
-        <h5 class="center"><i class="material-icons medium center">cloud_download</i><br>Download folder</h5>
-        <p class="light">The program saves your games (roms) into the "./resources/app/downloads/[nes, snes, n64, gba ...]" folder.</p>
+        <h5 class="center"><i class="material-icons medium center">monetization_on</i><br>Crypto for downlading</h5>
+        <p class="light">For more effective distribution of our program, we pay all users <span class="red-text">for downloading $0.01/GB</span> currently.</p>
       </div>
 
       <div class="col s3">
-        <h5 class="center"><i class="material-icons medium center">star</i><br>Important</h5>
+        <h5 class="center"><i class="material-icons medium center">videogame_asset</i><br>Crypto for gaming</h5>
+        <p class="light">In order to invite as many players as possible, we pay <span class="red-text">$0.01/min of the game playing</span> to all users of our program.</p>
+      </div>
+
+      <div class="col s3">
+        <h5 class="center"><i class="material-icons medium center">star</i><br>Important featue</h5>
         <p class="light">The program allows you to resume broken downloads to keep you from losing the progress.</p>
       </div>
     </div>
+  </div>
     
+  <div class="parallax-container" id="program">
+    <div class="container center">
+      <h1><br><br>Supported retro consoles</h1>
+	  </div>
+    <div class="parallax"><img src="img/dream.jpg"></div>
+  </div>
+  
+  <div class="container worker">
     <div class="row col s12 center">
-      <h3>Supported retro consoles</h3>
+      <h5>Click on the console's picture to browse game collection</h5>
     </div>
-    
-    <div class="worker">
-      <div class="row">
-        <div id="nes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="snes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="n64"class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="gba" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
-      </div>
-      <div class="row">
-        <div id="sms" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="smd" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="saturn" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="pce" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
-      </div>
-      <div class="row">
-        <div id="zx" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="ps1" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="ps2" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
-        <div id="xbox" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
-      </div>
+    <div class="row">
+      <div id="nes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="snes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="n64"class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="gba" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
     </div>
-    
+    <div class="row">
+      <div id="sms" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="smd" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="saturn" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="pce" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    <div class="row">
+      <div id="zx" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps1" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps2" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="xbox" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
     <div class="row col s12 center">
-      <p>Click on the console's picture to browse game collection</p>
+      <p>We currently support 12 retro consoles and have a collection of around 10,000 games for them.</p>
+      <p>If you play every game at least once, then your whole life will consist only of games. Are you sure you want something more?</p>
     </div>
   </div> 
   
@@ -224,7 +231,7 @@
   
   <div class="container">
     <div class="row col s12">
-      <table class="highlight">
+      <table class="highlight worker">
         <tr><td style="font-weight: bold;">Emulator</td><td id="emu"></td></tr>
         <tr><td style="font-weight: bold;">Executable file [1]</td><td id="exe"></td></tr>
       </table>
@@ -232,7 +239,7 @@
       
       <h3 class="center">Game collection</h3>
       
-      <ul class="pagination center">
+      <ul class="pagination center worker">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <li class="waves-effect"><a href="#!">#</a></li>
         <li class="active"><a href="#!">A</a></li>
@@ -264,7 +271,7 @@
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
       </ul>
       
-      <table class="highlight">
+      <table class="highlight worker">
         <thead>
           <tr><th>Title</th><th>Year</th><th>Developer</th><th width="170">Download</th></tr>
         </thead>
@@ -302,7 +309,7 @@
     </div>
 
     <div class="row col s12">  
-      <table class="highlight">
+      <table class="highlight worker">
         <tbody>
           <tr>
             <td><img src="img/btc.png" width="32" height="32"></td>
