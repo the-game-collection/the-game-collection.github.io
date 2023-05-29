@@ -17,10 +17,10 @@
   <script src="js/worker.min.js"></script>
 </head>
 <body style="opacity: 0">
-  <div id="navbar" class="navbar-fixed scrollspy">
+  <div id="navbar" class="navbar-fixed scrollspy worker">
     <nav class="white">
       <div class="nav-wrapper container">
-        <a class="head-link brand-logo" href="#navbar"><img src="img/thegamecollection.png"/></a>
+        <a class="brand-logo" href="#navbar"><img src="img/thegamecollection.png" class="head-link"/></a>
         <ul class="right hide-on-med-and-down">
           <li><a class="head-link" href="#navbar">Download</a></li>
           <li><a class="head-link" href="#program">Program</a></li>
@@ -72,7 +72,7 @@
         <tbody id="metamask">
           <tr>
             <td><img src="img/usdt.png" width="32" height="32"></td>
-            <td>Tether (USDT)</td><td id="o_usdt">0.0000</td><td id="f_usdt">0.0000</td>
+            <td>Tether (USDT)</td><td id="o_usdt">0</td><td id="f_usdt">0</td>
             <td colspan="2"></td>
           </tr>
         </tbody>
@@ -127,6 +127,29 @@
           </tr>
         </tbody>
       </table>
+      <p id="vip3" class="center">This is VIP3 feature, you need to have 100 USDT in your account to use it.</p>
+    </div>
+    <div class="row col s12">
+      <ul class="collapsible">
+        <li id="deposit_hist" style="display: none;">
+          <div class="collapsible-header"><i class="material-icons">file_download</i>Deposit history</div>
+          <div class="collapsible-body">
+            <table class="highlight">
+              <th>Date</th><th>Hash</th><th id="deposit_coin"></th><th>Status</th>
+              <tbody id="deposit_tdody"></tbody>
+            </table>
+          </div>
+        </li>
+        <li id="withdraw_hist" style="display: none;">
+          <div class="collapsible-header"><i class="material-icons">file_upload</i>Withdrawal history</div>
+          <div class="collapsible-body">
+            <table class="highlight">
+              <th>Date</th><th>Hash</th><th id="withdraw_coin"></th><th>Status</th>
+              <tbody id="withdraw_tdody"></tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -150,7 +173,7 @@
 
       <div class="col s3">
         <h5 class="center"><i class="material-icons medium">collections</i><br>Game collection</h5>
-        <p class="light">We created a database of retro games that contains: titels, genres, descriptions, cover pictures & download links</p>
+        <p class="light">We created a database of retro games that contains: titles, genres, descriptions, cover pictures & download links</p>
       </div>
 
       <div class="col s3">
