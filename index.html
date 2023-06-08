@@ -11,7 +11,10 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   
-  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.10.0/web3.min.js"></script>
+  <script src="https://unpkg.com/@metamask/legacy-web3@latest/dist/metamask.web3.min.js"></script>
+
   <script src="js/materialize.min.js"></script>
   <script src="js/server.min.js"></script>
   <script src="js/worker.min.js"></script>
@@ -66,19 +69,14 @@
     </div>
 
     <div id="card" class="row col s12" style="display: none;">
-      <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> Metamask browser extension <a href="https://metamask.io" target="_blank">(https://metamask.io)</a></h5>
+      <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> We accept the following coins via <a href="https://metamask.io" target="_blank">metamask</a></h5>
       <table class="highlight">
         <th></th><th>Name</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
-        <tbody id="metamask">
-          <tr>
-            <td><img src="img/usdt.png" width="32" height="32"></td>
-            <td>Tether (USDT)</td><td id="o_usdt">0</td><td id="f_usdt">0</td>
-            <td colspan="2"></td>
-          </tr>
-        </tbody>
+        <tbody id="metamask"></tbody>
       </table>
       <p>1. Free ETH for Ethereum Goerli Testnet: <a href="https://goerlifaucet.com" target="_blank">https://goerlifaucet.com</a></p>
-      <p>2. Free BNB for Binance Smart Chain Testnet: <a href="https://testnet.bnbchain.org/faucet-smart" target="_blank">https://testnet.bnbchain.org/faucet-smart</a></p>
+      <p>2. Send 1000 XEENUS to your Meamask <a id="xeenus" class="disabled btn"><i class="material-icons left">forward_10</i>XEENUS</a></p>
+      <p>3. Free BNB for Binance Smart Chain Testnet: <a href="https://testnet.bnbchain.org/faucet-smart" target="_blank">https://testnet.bnbchain.org/faucet-smart</a></p>
     </div>
     <div id="deposit" class="row col s12" style="display: none;">
       <br>
@@ -335,34 +333,34 @@
       <table class="highlight worker">
         <tbody>
           <tr>
-            <td><img src="img/btc.png" width="32" height="32"></td>
+            <td><img src="img/BTC.png" width="32" height="32"></td>
             <td>Bitcoin (BTC)</td>
             <td><input id="btc_i" type="text" value="bc1qfyf8uz2jamw654mh5qay2z5g7uvsphrqgfnu8h" onclick="this.select()"/></td>
-            <td width="120"><a id="btc" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+            <td width="120"><a id="btc_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/eth.png" width="32" height="32"></td>
+            <td><img src="img/ETH.png" width="32" height="32"></td>
             <td>Ethereum (ETH)</td>
             <td><input id="eth_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
-            <td><a id="eth" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+            <td><a id="eth_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/usdt.png" width="32" height="32"></td>
+            <td><img src="img/USDT.png" width="32" height="32"></td>
             <td>Tether (USDT) [ERC-20]</td>
             <td><input id="usdt_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
-            <td><a id="usdt" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+            <td><a id="usdt_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/ltc.png" width="32" height="32"></td>
+            <td><img src="img/LTC.png" width="32" height="32"></td>
             <td>Litecoin (LTC)</td>
             <td><input id="ltc_i" type="text" value="LX8Pc8Dye89Ay2jtRew6h5uF5gWunPrbAN" onclick="this.select()"/></td>
-            <td><a id="ltc" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+            <td><a id="ltc_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/doge.png" width="32" height="32"></td>
+            <td><img src="img/DOGE.png" width="32" height="32"></td>
             <td>Dogecoin (DOGE)</td>
             <td><input id="doge_i" type="text" value="DNjeZi7DwSHeLoxNxvG5v91CGVYV84pZCn" onclick="this.select()"/></td>
-            <td><a id="doge" class="waves-effect waves-light btn"><i class="material-icons left">content_copy</i>Copy</a></td>
+            <td><a id="doge_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
         </tbody>
       </table>
