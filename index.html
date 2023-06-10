@@ -71,14 +71,16 @@
     <div id="card" class="row col s12" style="display: none;">
       <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> We accept the following coins via <a href="https://metamask.io" target="_blank">metamask</a></h5>
       <table class="highlight">
-        <th></th><th>Name</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
+        <th></th><th>Network</th><th>Market</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
         <tbody id="metamask"></tbody>
       </table>
-      <p>1. Free ETH for Ethereum Goerli Testnet: <a href="https://goerlifaucet.com" target="_blank">https://goerlifaucet.com</a></p>
-      <p>2. Send 1000 XEENUS to your Meamask <a id="xeenus" class="disabled btn"><i class="material-icons left">forward_10</i>XEENUS</a></p>
-      <p>3. Free BNB for Binance Smart Chain Testnet: <a href="https://testnet.bnbchain.org/faucet-smart" target="_blank">https://testnet.bnbchain.org/faucet-smart</a></p>
     </div>
-    <div id="deposit" class="row col s12" style="display: none;">
+    <div id="market" class="row col s12 xcard" style="display: none;">
+      <br>
+      <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
+      <h5 id="market_h" class="center">Market</h5>
+    </div>
+    <div id="deposit" class="row col s12 xcard" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
       <h5 id="deposit_h" class="center"></h5>
@@ -102,7 +104,7 @@
       </table>
       <p class="center">* Help us to distribute our program using the following link and earn on invitation fees:</p> <h5 class="center blue-text">https://the-game-collection.github.io/?id=<span class="c_user"></span></h5>
     </div>
-    <div id="withdraw" class="row col s12" style="display: none;">
+    <div id="withdraw" class="row col s12 xcard" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
       <h5 id="withdraw_h" class="center"></h5>
@@ -125,11 +127,11 @@
           </tr>
         </tbody>
       </table>
-      <p id="vip30" class="center">This is VIP30 feature, you need to have 30 USDT in your account to use it.</p>
+      <p id="vip30" class="center red-text">This is VIP30 feature, you need to have 30 USDT in your account to use it.</p>
     </div>
     <div class="row col s12">
       <ul class="collapsible">
-        <li id="deposit_hist" style="display: none;">
+        <li id="deposit_hist" class="xcard" style="display: none;">
           <div class="collapsible-header"><i class="material-icons">file_download</i>Deposit history</div>
           <div class="collapsible-body">
             <table class="highlight">
@@ -138,7 +140,7 @@
             </table>
           </div>
         </li>
-        <li id="withdraw_hist" style="display: none;">
+        <li id="withdraw_hist" class="xcard" style="display: none;">
           <div class="collapsible-header"><i class="material-icons">file_upload</i>Withdrawal history</div>
           <div class="collapsible-body">
             <table class="highlight">
