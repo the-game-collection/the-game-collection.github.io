@@ -39,11 +39,11 @@
     <div class="row col s12 center login"><h5>Sign up / Login</h5></div>
     <div class="row login">
       <div class="input-field col s6">
-        <input id="username" type="text" class="validate">
+        <input id="username" type="text">
         <label class="active" for="username">Username</label>
       </div>
       <div class="input-field col s6">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password">
         <label class="active" for="password">Password</label>
       </div>
     </div>
@@ -53,7 +53,7 @@
         <p id="_captcha"></p>
       </div>
       <div class="input-field col s6">
-        <input id="captcha" type="text" class="validate">
+        <input id="captcha" type="text" onkeypress="return check_num(event)">
         <label class="active" for="captcha">Captcha</label>
       </div>
     </div>
@@ -71,25 +71,54 @@
     <div id="card" class="row col s12" style="display: none;">
       <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> We accept the following coins via <a href="https://metamask.io" target="_blank">metamask</a></h5>
       <table class="highlight">
-        <th></th><th>Network</th><th>Market</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
+        <th>Coin</th><th>Network</th><th>Market</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
         <tbody id="metamask"></tbody>
       </table>
     </div>
-    <div id="market" class="row col s12 xcard" style="display: none;">
+    <div class="row col s12 xcard market" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
-      <h5 id="market_h" class="center">Market</h5>
+      <h5 class="center">Market: <span class="coin"></span>/USDT</h5>
+      <table class="highlight">
+        <th>Sell price (USDT)</th><th>Sell amount (<span class="coin"></span>)</th><th>Buy price (USDT)</th><th>Buy amount (<span class="coin"></span>)</th>
+        <tbody>
+          <tr><td id="sp_0" class="red-text"></td><td id="sq_0" class="red-text"></td><td id="bp_0" class="green-text"></td><td id="bq_0" class="green-text"></td></tr>
+          <tr><td id="sp_1" class="red-text"></td><td id="sq_1" class="red-text"></td><td id="bp_1" class="green-text"></td><td id="bq_1" class="green-text"></td></tr>
+          <tr><td id="sp_2" class="red-text"></td><td id="sq_2" class="red-text"></td><td id="bp_2" class="green-text"></td><td id="bq_2" class="green-text"></td></tr>
+          <tr><td id="sp_3" class="red-text"></td><td id="sq_3" class="red-text"></td><td id="bp_3" class="green-text"></td><td id="bq_3" class="green-text"></td></tr>
+          <tr><td id="sp_4" class="red-text"></td><td id="sq_4" class="red-text"></td><td id="bp_4" class="green-text"></td><td id="bq_4" class="green-text"></td></tr>
+          <tr><td id="sp_5" class="red-text"></td><td id="sq_5" class="red-text"></td><td id="bp_5" class="green-text"></td><td id="bq_5" class="green-text"></td></tr>
+          <tr><td id="sp_6" class="red-text"></td><td id="sq_6" class="red-text"></td><td id="bp_6" class="green-text"></td><td id="bq_6" class="green-text"></td></tr>
+          <tr><td id="sp_7" class="red-text"></td><td id="sq_7" class="red-text"></td><td id="bp_7" class="green-text"></td><td id="bq_7" class="green-text"></td></tr>
+          <tr><td id="sp_8" class="red-text"></td><td id="sq_8" class="red-text"></td><td id="bp_8" class="green-text"></td><td id="bq_8" class="green-text"></td></tr>
+          <tr><td id="sp_9" class="red-text"></td><td id="sq_9" class="red-text"></td><td id="bp_9" class="green-text"></td><td id="bq_9" class="green-text"></td></tr>
+          <tr>
+            <td>Available balance (<span class="coin"></span>):</td><td id="market_ab"></td>
+            <td>You can buy for this price (<span class="coin"></span>):</td><td id="market_max">0</td>
+          </tr>
+          <tr>
+            <td><input id="market_sp" class="market_v" type="text" value="0" onkeypress="return check_num(event)"></td>
+            <td><input id="market_sq" class="market_v" type="text" value="0" onkeypress="return check_num(event)"></td>
+            <td><input id="market_bp" class="market_v" type="text" value="0" onkeypress="return check_num(event)"></td>
+            <td><input id="market_bq" class="market_v" type="text" value="0" onkeypress="return check_num(event)"></td>
+          </tr>
+          <tr>
+            <td>Create Sell order:</td><td><a id="market_sell" class="disabled btn"><i class="material-icons left">check</i>Submit</a></td>
+            <td>Create Buy order:</td><td><a id="market_buy" class="disabled btn"><i class="material-icons left">check</i>Submit</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div id="deposit" class="row col s12 xcard" style="display: none;">
+    <div class="row col s12 xcard deposit" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
-      <h5 id="deposit_h" class="center"></h5>
+      <h5 class="center">Deposit <span class="coin"></span> from <span id="deposit_h"></span></h5>
       <table class="highlight">
         <tbody>
           <tr>
-            <td>How much <span id="deposit_c"></span> do you want to deposit?</td>
+            <td>How much <span class="coin"></span> do you want to deposit?</td>
             <td>
-              <input id="deposit_v" type="text" class="validate" value="0">
+              <input id="deposit_v" type="text" value="0" onkeypress="return check_num(event)">
             </td>
           </tr>
           <tr>
@@ -102,19 +131,20 @@
           </tr>
         </tbody>
       </table>
-      <p class="center">* Help us to distribute our program using the following link and earn on invitation fees:</p> <h5 class="center blue-text">https://the-game-collection.github.io/?id=<span class="c_user"></span></h5>
+      <h5 class="center red-text">* Send the following link to your friends and earn on invitation fees:</h5>
+      <h5 class="center blue-text">https://the-game-collection.github.io/?id=<span class="c_user"></span></h5>
     </div>
-    <div id="withdraw" class="row col s12 xcard" style="display: none;">
+    <div class="row col s12 xcard withdraw" style="display: none;">
       <br>
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
-      <h5 id="withdraw_h" class="center"></h5>
+      <h5 class="center">Withdrawal <span class="coin"></span> to <span id="withdraw_h"></span></h5>
       <table class="highlight">
         <tbody>
           <tr><td>Available balance</td><td id="withdraw_a"></td></tr>
           <tr>
-            <td>How much <span id="withdraw_c"></span> do you want to withdraw?</td>
+            <td>How much <span class="coin"></span> do you want to withdraw?</td>
             <td>
-              <input id="withdraw_v" type="text" class="validate" value="0">
+              <input id="withdraw_v" type="text" value="0" onkeypress="return check_num(event)">
             </td>
           </tr>
           <tr>
@@ -127,25 +157,34 @@
           </tr>
         </tbody>
       </table>
-      <p id="vip30" class="center red-text">This is VIP30 feature, you need to have 30 USDT in your account to use it.</p>
+      <h5 id="vip10" class="center red-text">This is VIP10 feature, you need to have 10 USDT in your account to use it!</h5>
     </div>
     <div class="row col s12">
       <ul class="collapsible">
-        <li id="deposit_hist" class="xcard" style="display: none;">
+        <li class="xcard deposit" style="display: none;">
           <div class="collapsible-header"><i class="material-icons">file_download</i>Deposit history</div>
           <div class="collapsible-body">
             <table class="highlight">
-              <th>Date</th><th>Hash</th><th id="deposit_coin"></th><th>Status</th>
+              <th>Date</th><th>Hash / Comment</th><th class="coin"></th><th>Status</th>
               <tbody id="deposit_tdody"></tbody>
             </table>
           </div>
         </li>
-        <li id="withdraw_hist" class="xcard" style="display: none;">
+        <li class="xcard withdraw" style="display: none;">
           <div class="collapsible-header"><i class="material-icons">file_upload</i>Withdrawal history</div>
           <div class="collapsible-body">
             <table class="highlight">
               <th>Date</th><th>Hash</th><th id="withdraw_coin"></th><th>Status</th>
               <tbody id="withdraw_tdody"></tbody>
+            </table>
+          </div>
+        </li>
+        <li class="xcard market" style="display: none;">
+          <div class="collapsible-header"><i class="material-icons">attach_money</i>My orders</div>
+          <div class="collapsible-body">
+            <table class="highlight">
+              <th>Date</th><th>Side</th><th>Price (USDT)</th><th>Qty</th><th>Exec</th><th>Cancel</th>
+              <tbody id="market_tdody"></tbody>
             </table>
           </div>
         </li>
@@ -335,32 +374,27 @@
       <table class="highlight worker">
         <tbody>
           <tr>
-            <td><img src="img/BTC.png" width="32" height="32"></td>
-            <td>Bitcoin (BTC)</td>
+            <td width="250"><img src="img/BTC.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Bitcoin (BTC)</td>
             <td><input id="btc_i" type="text" value="bc1qfyf8uz2jamw654mh5qay2z5g7uvsphrqgfnu8h" onclick="this.select()"/></td>
             <td width="120"><a id="btc_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/ETH.png" width="32" height="32"></td>
-            <td>Ethereum (ETH)</td>
+            <td><img src="img/ETH.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Ethereum (ETH)</td>
             <td><input id="eth_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
             <td><a id="eth_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/USDT.png" width="32" height="32"></td>
-            <td>Tether (USDT) [ERC-20]</td>
+            <td><img src="img/USDT.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Tether (USDT) [ERC-20]</td>
             <td><input id="usdt_i" type="text" value="0x145b42716ded6275af88c27ffa36005c4adc5637" onclick="this.select()"/></td>
             <td><a id="usdt_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/LTC.png" width="32" height="32"></td>
-            <td>Litecoin (LTC)</td>
+            <td><img src="img/LTC.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Litecoin (LTC)</td>
             <td><input id="ltc_i" type="text" value="LX8Pc8Dye89Ay2jtRew6h5uF5gWunPrbAN" onclick="this.select()"/></td>
             <td><a id="ltc_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
           <tr>
-            <td><img src="img/DOGE.png" width="32" height="32"></td>
-            <td>Dogecoin (DOGE)</td>
+            <td><img src="img/DOGE.png" width="32" height="32" style="vertical-align: -10px;">&nbsp;&nbsp;Dogecoin (DOGE)</td>
             <td><input id="doge_i" type="text" value="DNjeZi7DwSHeLoxNxvG5v91CGVYV84pZCn" onclick="this.select()"/></td>
             <td><a id="doge_i" class="waves-effect waves-light btn support"><i class="material-icons left">content_copy</i>Copy</a></td>
           </tr>
