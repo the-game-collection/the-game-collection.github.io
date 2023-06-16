@@ -71,7 +71,7 @@
     <div id="card" class="row col s12" style="display: none;">
       <h5 class="center"><img src="img/metamask.png" style="vertical-align: -20px;"> We accept the following coins via <a href="https://metamask.io" target="_blank">metamask</a></h5>
       <table class="highlight">
-        <th>Coin</th><th>Network</th><th>Market</th><th>In order</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th>
+        <thead><tr><th>Coin</th><th>Network</th><th>Market</th><th>In orders</th><th>Free</th><th width="160">Deposit</th><th width="160">Withdraw</th></tr></thead>
         <tbody id="metamask"></tbody>
       </table>
     </div>
@@ -105,7 +105,7 @@
       <a class="waves-effect waves-light btn back"><i class="material-icons left">keyboard_backspace</i>Back</a>
       <h5 class="center">Market: <span class="coin"></span>/USDT</h5>
       <table class="highlight">
-        <th>Sell price (USDT)</th><th>Sell amount (<span class="coin"></span>)</th><th>Buy price (USDT)</th><th>Buy amount (<span class="coin"></span>)</th>
+        <thead><tr><th>Sell price (USDT)</th><th>Sell amount (<span class="coin"></span>)</th><th>Buy price (USDT)</th><th>Buy amount (<span class="coin"></span>)</th></tr></thead>
         <tbody>
           <tr><td id="sp_0" class="red-text"></td><td id="sq_0" class="red-text"></td><td id="bp_0" class="green-text"></td><td id="bq_0" class="green-text"></td></tr>
           <tr><td id="sp_1" class="red-text"></td><td id="sq_1" class="red-text"></td><td id="bp_1" class="green-text"></td><td id="bq_1" class="green-text"></td></tr>
@@ -190,7 +190,7 @@
           <div class="collapsible-header"><i class="material-icons">file_download</i>Deposit history</div>
           <div class="collapsible-body">
             <table class="highlight">
-              <th>Date</th><th>Hash / Comment</th><th class="coin"></th><th>Status</th>
+              <thead><th>Date</th><th>Hash / Comment</th><th class="coin"></th><th>Status</th></thead>
               <tbody id="deposit_tdody"></tbody>
             </table>
           </div>
@@ -199,7 +199,7 @@
           <div class="collapsible-header"><i class="material-icons">file_upload</i>Withdrawal history</div>
           <div class="collapsible-body">
             <table class="highlight">
-              <th>Date</th><th>Hash</th><th id="withdraw_coin"></th><th>Status</th>
+            <thead><th>Date</th><th>Hash</th><th id="withdraw_coin"></th><th>Status</th></thead>
               <tbody id="withdraw_tdody"></tbody>
             </table>
           </div>
@@ -208,7 +208,7 @@
           <div class="collapsible-header"><i class="material-icons">attach_money</i>My orders</div>
           <div class="collapsible-body">
             <table class="highlight">
-              <th>Date</th><th>Side</th><th>Price (USDT)</th><th>Qty</th><th>Exec</th><th>Cancel</th>
+              <thead><th>Date</th><th>Side</th><th>Price (USDT)</th><th>Qty</th><th>Exec</th><th>Cancel</th></thead>
               <tbody id="market_tdody"></tbody>
             </table>
           </div>
