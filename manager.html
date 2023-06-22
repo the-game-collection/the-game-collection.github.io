@@ -1,0 +1,155 @@
+<div id="navbar" class="navbar-fixed scrollspy">
+  <nav class="white">
+    <div class="nav-wrapper container">
+      <a class="head-link brand-logo" href="#navbar"><img src=""/></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><i id="person" class="material-icons left">person</i><span class="c_user"></span></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="user" class="container worker" style="display: none;">
+  <div class="row col s12 center login"><h5>Login form</h5></div>
+  <div class="row login">
+    <div class="input-field col s6">
+      <input id="username" type="text">
+      <label class="active" for="username">Username</label>
+    </div>
+    <div class="input-field col s6">
+      <input id="password" type="password">
+      <label class="active" for="password">Password</label>
+    </div>
+  </div>
+  <div class="row login">
+    <div class="col s6">
+      <p>What is?</p>
+      <p id="_captcha"></p>
+    </div>
+    <div class="input-field col s6">
+      <input id="captcha" type="text" onkeypress="return check_num(event)">
+      <label class="active" for="captcha">Captcha</label>
+    </div>
+  </div>
+  <div class="row col s12 center login">
+    <a id="login" class="waves-effect waves-light btn"><i class="material-icons left">person_add</i>Login</a>
+  </div>
+  <div id="login_error" class="row col s12 login" style="display: none;">
+    <div class="alert card red lighten-4 red-text text-darken-4">
+      <div class="card-content">
+        <i class="material-icons" style="vertical-align: -6px;">report</i><span id="login_error"></span>
+      </div>
+    </div>
+  </div>
+  <div id="card" class="row col s12" style="display: none;">
+ <h5 class="center green-text">Keep some USDT in your account & enjoy the following VIP features:</h5>
+  </div>
+  <div id="vip" class="row" style="display: none;">
+    <div class="col s4">
+      <h5 class="center">VIP10</h5>
+      <p class="light center"><strong>Mainnet withdrawal option</strong>
+        <br>10 USDT required
+        <br>Status: <span id="vip10"></span>
+      </p>
+    </div>
+    <div class="col s4">
+      <h5 class="center">VIP20</h5>
+      <p class="light center"><strong>0.01 USDT/GB for downloading</strong>
+        <br>20 USDT required
+        <br><a id="vip20" class="disabled btn"><i class="material-icons left">attach_money</i>Get <span id="USDT_d">0.0000</span> USDT</a>
+      </p>
+    </div>
+    <div class="col s4">
+      <h5 class="center">VIP30</h5>
+      <p class="light center"><strong>0.01 USDT/Min for gaming</strong>
+        <br>30 USDT required
+        <br><a id="vip30" class="disabled btn"><i class="material-icons left">attach_money</i>Get <span id="USDT_g">0.0000</span> USDT</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row col s12 center"><h5 class="center">Please visit our server: <span id="server" class="blue-text"></span> & deposit some crypto</h5></div>
+</div>
+
+<div class="container">
+  <div class="worker">
+    <div class="row">
+      <div id="nes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="snes" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="n64"class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="gba" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    <div class="row">
+      <div id="sms" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="smd" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="saturn" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="pce" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+    <div class="row">
+      <div id="zx" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps1" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="ps2" class="col s3" style="cursor: pointer; border-radius: 25px"></div> 
+      <div id="xbox" class="col s3" style="cursor: pointer; border-radius: 25px"></div>
+    </div>
+  </div>
+	
+  <div class="row col s12">
+    <table class="highlight worker">
+      <tr>
+        <td style="font-weight: bold;">Emulator</td><td id="emu"></td>
+        <td class="right td_emu" width="180">
+          <a id="emu" class="waves-effect waves-light btn">
+            <i class="material-icons left">file_download</i>Download
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold;">Executable file [1]</td><td id="exe"></td>
+        <td class="td_emu">
+          <div class="progress"><div id="emu" class="determinate" style="width: 0%"></div></div>
+          <p id="emu"></p>
+        </td>
+      </tr>
+    </table>
+    <p>[1] The program checks for this file. If this executable file exists, then you can run your games directly from the GUI.</p>
+    
+    <h3 class="center">Game collection</h3>
+    <ul class="pagination center worker">
+      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+      <li class="waves-effect"><a href="#!">#</a></li>
+      <li class="active"><a href="#!">A</a></li>
+      <li class="waves-effect"><a href="#!">B</a></li>
+      <li class="waves-effect"><a href="#!">C</a></li>
+      <li class="waves-effect"><a href="#!">D</a></li>
+      <li class="waves-effect"><a href="#!">E</a></li>
+      <li class="waves-effect"><a href="#!">F</a></li>
+      <li class="waves-effect"><a href="#!">G</a></li>
+      <li class="waves-effect"><a href="#!">H</a></li>
+      <li class="waves-effect"><a href="#!">I</a></li>
+      <li class="waves-effect"><a href="#!">J</a></li>
+      <li class="waves-effect"><a href="#!">K</a></li>
+      <li class="waves-effect"><a href="#!">L</a></li>
+      <li class="waves-effect"><a href="#!">M</a></li>
+      <li class="waves-effect"><a href="#!">N</a></li>
+      <li class="waves-effect"><a href="#!">O</a></li>
+      <li class="waves-effect"><a href="#!">P</a></li>
+      <li class="waves-effect"><a href="#!">Q</a></li>
+      <li class="waves-effect"><a href="#!">R</a></li>
+      <li class="waves-effect"><a href="#!">S</a></li>
+      <li class="waves-effect"><a href="#!">T</a></li>
+      <li class="waves-effect"><a href="#!">U</a></li>
+      <li class="waves-effect"><a href="#!">V</a></li>
+      <li class="waves-effect"><a href="#!">W</a></li>
+      <li class="waves-effect"><a href="#!">X</a></li>
+      <li class="waves-effect"><a href="#!">Y</a></li>
+      <li class="waves-effect"><a href="#!">Z</a></li>
+      <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <ul id="list" class="collapsible worker"></ul>
+</div>
